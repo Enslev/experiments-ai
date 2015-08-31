@@ -10,6 +10,8 @@ namespace UnitySampleAssets._2D
         private PlatformerCharacter2D character;
         private bool jump;
 
+		public Texture2D sourceTex;
+
         private void Awake()
         {
             character = GetComponent<PlatformerCharacter2D>();
@@ -17,9 +19,10 @@ namespace UnitySampleAssets._2D
 
         private void Update()
         {
-            if(!jump)
-            // Read the jump input in Update so button presses aren't missed.
-            jump = CrossPlatformInputManager.GetButtonDown("Jump");
+			if (!jump) {
+				// Read the jump input in Update so button presses aren't missed.
+				jump = CrossPlatformInputManager.GetButtonDown ("Jump");
+			}
         }
 
         private void FixedUpdate()
@@ -28,8 +31,11 @@ namespace UnitySampleAssets._2D
             //bool crouch = Input.GetKey(KeyCode.LeftControl);
 			//float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Pass all parameters to the character control script.
-            character.Move(1, false, jump);
-            jump = false;
+
+			character.Move(1, false, jump);
+			jump = false;
+
         }
+
     }
 }

@@ -17,6 +17,7 @@ public class GameOverScript : MonoBehaviour {
 		if (GUI.Button (new Rect (Screen.width / 2 - 40, 350, 80, 30), "Retry?")) {
 			Application.LoadLevel(0);
 		}
+
 	}
 
 }
