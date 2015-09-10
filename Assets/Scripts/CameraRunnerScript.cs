@@ -17,10 +17,10 @@ public class CameraRunnerScript : MonoBehaviour {
 		count++;
 
 		if (count > 100) {
-			Texture2D tex = new Texture2D(320, 150, TextureFormat.RGB24, false);
+			Texture2D tex = new Texture2D(50, 25, TextureFormat.RGB24, false);
 			
 			// Read screen contents into the texture
-			tex.ReadPixels(new Rect(75, 100, 320, 150), 0, 0);
+			tex.ReadPixels(new Rect(90, 123, 50, 25), 0, 0);
 			tex.Apply();
 
 			Color[] bv = tex.GetPixels();

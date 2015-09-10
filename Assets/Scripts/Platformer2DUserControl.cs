@@ -10,8 +10,6 @@ namespace UnitySampleAssets._2D
         private PlatformerCharacter2D character;
         private bool jump;
 
-		public Texture2D sourceTex;
-
         private void Awake()
         {
             character = GetComponent<PlatformerCharacter2D>();
