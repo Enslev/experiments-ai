@@ -23,7 +23,7 @@ namespace UnitySampleAssets._2D
         private float ceilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator anim; // Reference to the player's animator component.
 
-		private bool doubleJump = false;
+		private bool doubleJump = true;
 
 
         private void Awake()
@@ -45,7 +45,7 @@ namespace UnitySampleAssets._2D
             anim.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);
 
 			if (grounded) 
-				doubleJump = false;
+				doubleJump = true;
         }
 
 
@@ -86,18 +86,19 @@ namespace UnitySampleAssets._2D
                     Flip();
             }
             // If the player should jump...
-            if ((grounded || !doubleJump) && jump)
+            //if ((grounded || !doubleJump) && jump)
+			if (grounded && jump)
             {
-				GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
+				//GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
 
                 // Add a vertical force to the player.
                 grounded = false;
-                anim.SetBool("Ground", false);
+                //anim.SetBool("Ground", false);
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce));
 				
 				// Disbable doubleJump if used
-				if (!grounded) 
-					doubleJump = true;
+				//if (!grounded) 
+				//	doubleJump = true;
             }
         }
 
